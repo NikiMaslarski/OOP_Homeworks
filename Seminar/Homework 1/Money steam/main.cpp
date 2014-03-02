@@ -60,6 +60,7 @@ void money_steam(){
             cout << "Player 1 rolls " << player1.diceValue
                  << endl << "Player 2 rolls " << player2.diceValue<< endl;
         }while(player1.diceValue == player2.diceValue);
+        cout << endl;
 
         if (player1.diceValue > player2.diceValue){
             playerOnePick(steam,player1);
