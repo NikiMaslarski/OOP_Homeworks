@@ -128,4 +128,5 @@ int main(){
         cout << "Wrong! " << endl << endl;
 
     printAllCards(cards,N);
+    cout << endl;
 }
