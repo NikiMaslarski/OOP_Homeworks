@@ -1,75 +1,8 @@
-/*
-**          https://gist.github.com/NikolayGenov/f6de2903f08800044269
-*/
-
 #include <iostream>
 #include <cstring>
+#include <Library.h>
 
 using namespace std;
-
-const int MAX_LEN = 30;
-const int LIBRARY_CAPACITY = 500;
-const int ISBN_SIZE = 13;
-
-enum Genre {CRIMINAL, FAIRY_TALE,FANTASY, GRAPHIC_NOVEL, ROMANCE, SCIENCE_FICTION, OTHER};
-
-struct Book{
-
-    char isbn[ISBN_SIZE +1];
-    char title[MAX_LEN];
-    char author[MAX_LEN];
-    int numberOfPages;
-    int publishYear;
-    Genre genre;
-
-};
-
-struct Library{
-
-    char name[MAX_LEN];
-    Book books[LIBRARY_CAPACITY];
-    int numberOfBooks = 0;
-};
-
-void printBook(const Book&);
-Book read_book();
-bool addBook(Library*,const Book& );
-void printLibraryInfo(const Library* );
-void findIsbn(const Library&);
-bool checkForEqual(const char*,const char*);
-void findBook(const Library&);
-void findAuthor(const Library&);
-void sortGenre(Library&);
-void swapBook(Book*,Book*);
-void compareBook(Library&);
-void menu(Library&);
-
-///------------------------------
-int main(){
-
-    Library test_library;
-    cout << "Enter library name: ";
-    cin.getline(test_library.name,MAX_LEN);
-
-    cout << endl << "Enter book 1: " << endl << endl;
-
-    Book book1 = read_book();
-    cout << endl << "Enter book 2: " << endl << endl;
-    cin.get();
-    Book book2 = read_book();
-    cout << endl << "Enter book 3:" << endl << endl;
-    cin.get();
-    Book book3 = read_book();
-    cout << endl;
-
-    addBook(&test_library,book1);
-    addBook(&test_library,book2);
-    addBook(&test_library,book3);
-
-    menu(test_library);
-
-}
-///-------------------------------
 
 void printBook(const Book& book){
 
