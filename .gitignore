@@ -213,3 +213,10 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+Practise/Task 3/RationalDynamicArray/Vector.layout
+*.o
+*.exe
+*.rar
+*.cbp
+*.depend
+Practise/Task 3/RationalDynamicArray/main.cpp

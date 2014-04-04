@@ -103,10 +103,45 @@ const Rational& RatDynArr::get(int index) const{
 }
 
 void RatDynArr::set(int index, const Rational& rational){
-
     this->dynArr[index] = rational;
 }
 
-int RatDynArr::getSize(){
+int RatDynArr::getSize() const{
     return this->arrSize;
+}
+
+Rational& RatDynArr::operator[](int i){
+    return this->dynArr[i];
+}
+
+RatDynArr& RatDynArr::operator<<(const Rational& rat){
+    this->push(rat);
+    return *this;
+}
+
+RatDynArr& RatDynArr::operator>>(Rational& rat){
+    rat =  get(getSize() - 1);
+    this->pop();
+    return *this;
+}
+
+RatDynArr& RatDynArr::operator<<(const RatDynArr& arr){
+    int size = arr.getSize();
+
+    for (int i = 0; i < size; i++){
+        this->push(arr.get(i));
+    }
+    return *this;
+}
+
+RatDynArr::operator bool() const{
+    return this->getSize();
+}
+
+RatDynArr& RatDynArr::operator()(Rational (*func)(Rational)){
+    int size = this->getSize();
+    for(int i = 0; i < size; i++){
+        this->set(i, func(get(i)));
+    }
+    return *this;
 }

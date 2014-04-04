@@ -19,7 +19,18 @@ class RatDynArr{
         Rational& get(int);
         const Rational& get(int) const;
         void set(int, const Rational&);
-        int getSize();
+        int getSize() const;
+
+        Rational& operator[](int) ;
+        const Rational operator[](int) const;
+
+        RatDynArr& operator<<(const Rational&);
+        RatDynArr& operator>>(Rational&);
+        RatDynArr& operator<<(const RatDynArr&);
+
+        operator bool() const;
+        RatDynArr& operator()(Rational (*func)(Rational));
+
 
     private:
         Rational* dynArr;
